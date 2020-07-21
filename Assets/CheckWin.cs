@@ -44,39 +44,49 @@ public class CheckWin : MonoBehaviour
 			for (int i = 0; i < 3; i++)
 			{
 				result[j,i] = Random.Range(0, 3);
-				Debug.Log(j + "" + i);
 				GameObject.Find(j.ToString()+i.ToString()).GetComponent<Image>().sprite = sprites[result[j,i]];
 			}
 		}
 		int jackpot_counter = 0;
+		bool oneWin = false;
 		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2])
 		{
 			calcWin(result[0, 0]);
+			oneWin = true;
 			jackpot_counter++;
 		}
 		if(result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2])
 		{
 			calcWin(result[1,0]);
+			oneWin = true;
 			jackpot_counter++;
 		}
 		if (result[2, 0] == result[2, 1] && result[2, 1] == result[2, 2])
 		{
 			calcWin(result[2, 0]);
+			oneWin = true;
 			jackpot_counter++;
 		}
 		if (result[0, 0] == result[1, 1] && result[1, 1] == result[2, 2])
 		{
 			calcWin(result[0, 0]);
+			oneWin = true;
 			jackpot_counter++;
 		}
 		if (result[2, 0] == result[1, 1] && result[1, 1] == result[0, 2])
 		{
 			calcWin(result[2, 0]);
+			oneWin = true;
 			jackpot_counter++;
 		}
 		if (jackpot_counter == 5)
 		{
 			//RAD HIER
+		}
+		if (oneWin)
+		{
+			money += winning;
+			Debug.Log("EIN GEWINN!!!!!!");
 		}
 
 
@@ -84,7 +94,6 @@ public class CheckWin : MonoBehaviour
 
 
 	}
-
 
 	private void calcWin(int item)
 	{
@@ -108,11 +117,11 @@ public class CheckWin : MonoBehaviour
 
 	private void UpdateNumbers()
 	{
+		
 		GameObject.Find("txtMoney").GetComponent<Text>().text = money.ToString();
 		GameObject.Find("txtBet").GetComponent<Text>().text = bet.ToString();
 		GameObject.Find("txtWin").GetComponent<Text>().text = winning.ToString();
-		GameObject.Find("txtMoney").GetComponent<Text>().text = winning.ToString(); //fsds
-
+		
 	}
 
 
