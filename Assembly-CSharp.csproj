@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CheckWin.cs" />
+    <Compile Include="Assets\Leiter.cs" />
+    <Compile Include="Assets\PlayerInfo.cs" />
     <Compile Include="Assets\SpriteRandomize.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/admin/Documents/Slot3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

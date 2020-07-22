@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -9,16 +10,20 @@ public class CheckWin : MonoBehaviour
 {
 
 	public Sprite[] sprites;
-	public int money;
-	public int bet;
-	public int winning;
+	public Button leiter;
+	public Text txtMoney;
+	public Text txtBet;
+	public Text txtWin;
+
+
+
 
 	// Start is called before the first frame update
 	void Start()
     {
-		money = 500;
-		bet = 10;
-		winning = 0;
+		PlayerInfo.money = 500;
+		PlayerInfo.bet = 10;
+		PlayerInfo.winning = 0;
     }
 
 	public void check1()
@@ -30,7 +35,12 @@ public class CheckWin : MonoBehaviour
 
 	public void StartClick()
 	{
-		money -= bet;
+		 PlayerInfo.money -= PlayerInfo.bet;
+	}
+
+	public void Switch()
+	{
+		SceneManager.LoadScene("Leiter");
 	}
 
 
@@ -41,6 +51,7 @@ public class CheckWin : MonoBehaviour
 
 		for (int j = 0; j < 3; j++)
 		{
+			
 			for (int i = 0; i < 3; i++)
 			{
 				result[j,i] = Random.Range(0, 3);
@@ -49,6 +60,8 @@ public class CheckWin : MonoBehaviour
 		}
 		int jackpot_counter = 0;
 		bool oneWin = false;
+
+		#region Zu Viel IFs
 		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2])
 		{
 			calcWin(result[0, 0]);
@@ -79,14 +92,19 @@ public class CheckWin : MonoBehaviour
 			oneWin = true;
 			jackpot_counter++;
 		}
+		#endregion
+
 		if (jackpot_counter == 5)
 		{
 			//RAD HIER
 		}
 		if (oneWin)
 		{
-			money += winning;
+			PlayerInfo.money += PlayerInfo.winning;
 			Debug.Log("EIN GEWINN!!!!!!");
+			leiter.gameObject.SetActive(true);
+			txtWin.text = PlayerInfo.winning.ToString();
+			PlayerInfo.winning = 0;
 		}
 
 
@@ -95,18 +113,21 @@ public class CheckWin : MonoBehaviour
 
 	}
 
+
+	
+
 	private void calcWin(int item)
 	{
 		switch (item)
 		{
 			case 0:
-				winning += bet * 2;
+				PlayerInfo.winning += PlayerInfo.bet * 2;
 				break;
 			case 1:
-				winning += bet * 4;
+				PlayerInfo.winning += PlayerInfo.bet * 4;
 				break;
 			case 2:
-				winning += bet * 6;
+				PlayerInfo.winning += PlayerInfo.bet * 6;
 				break;
 
 			default:
@@ -117,10 +138,8 @@ public class CheckWin : MonoBehaviour
 
 	private void UpdateNumbers()
 	{
-		
-		GameObject.Find("txtMoney").GetComponent<Text>().text = money.ToString();
-		GameObject.Find("txtBet").GetComponent<Text>().text = bet.ToString();
-		GameObject.Find("txtWin").GetComponent<Text>().text = winning.ToString();
+		txtMoney.text = PlayerInfo.money.ToString();
+		txtBet.text = PlayerInfo.bet.ToString();
 		
 	}
 

@@ -22,6 +22,7 @@ public class SpriteRandomize : MonoBehaviour
     void Update()
     {
 		RandomImage();
+		
     }
 
 	 void RandomImage()
