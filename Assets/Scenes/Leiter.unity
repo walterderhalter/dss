@@ -291,7 +291,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1570045975}
-        m_MethodName: End_click
+        m_MethodName: End_Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 313155402}
   - component: {fileID: 313155401}
   m_Layer: 5
-  m_Name: box3
+  m_Name: box2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 497173847}
   - component: {fileID: 497173846}
   m_Layer: 5
-  m_Name: box1
+  m_Name: box0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 741004768}
   - component: {fileID: 741004767}
   m_Layer: 5
-  m_Name: box10
+  m_Name: box9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 1001938566}
   - component: {fileID: 1001938565}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1570045975}
-        m_MethodName: Start_click
+        m_MethodName: Stop_Normal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 1199261138}
   - component: {fileID: 1199261137}
   m_Layer: 5
-  m_Name: box6
+  m_Name: box5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1222252504}
   - component: {fileID: 1222252503}
   m_Layer: 5
-  m_Name: box7
+  m_Name: box6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 1284119771}
   - component: {fileID: 1284119770}
   m_Layer: 5
-  m_Name: box2
+  m_Name: box1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1810,7 +1810,7 @@ GameObject:
   - component: {fileID: 1697889481}
   - component: {fileID: 1697889480}
   m_Layer: 5
-  m_Name: box8
+  m_Name: box7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1943,7 +1943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: Stop
 --- !u!222 &1743204239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2043,7 +2043,7 @@ GameObject:
   - component: {fileID: 1776075968}
   - component: {fileID: 1776075967}
   m_Layer: 5
-  m_Name: box9
+  m_Name: box8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2118,7 +2118,7 @@ GameObject:
   - component: {fileID: 1821750902}
   - component: {fileID: 1821750901}
   m_Layer: 5
-  m_Name: box4
+  m_Name: box3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2272,7 +2272,7 @@ GameObject:
   - component: {fileID: 2128552432}
   - component: {fileID: 2128552431}
   m_Layer: 5
-  m_Name: box5
+  m_Name: box4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

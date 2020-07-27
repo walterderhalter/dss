@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,8 @@ public class Leiter : MonoBehaviour
 	private int position;
 	private bool schalter;
 	private int c;
+	private int p1;
+	private int p2;
 	private List<int> price;
 	private protected int[] multipliaktoren = new int[] { 0, 2, 5, 7, 10, 20, 40, 70, 100, 200 };
 
@@ -21,17 +24,20 @@ public class Leiter : MonoBehaviour
 	{
 		
 		SetPrice();
+		Debug.Log("SetPrice");
 		SetButtons();
-		position = GetPostion();
+		Debug.Log("SetButtons");
+		GetPostion();
+		Debug.Log("GetPosi");
 
 		schalter = true;
-		GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
+		
 	}
 
 
 	private void SetPrice()
 	{
-		price = new List<int>();
+		price = new List<int>() { 0,0,0,0,0,0,0,0,0,0};
 
 		for (int i = 0; i < 10; i++)
 		{
@@ -43,84 +49,125 @@ public class Leiter : MonoBehaviour
 	{
 		for (int i = 0; i < 10; i++)
 		{
-			Debug.Log(i + 1);
 			GameObject.Find("txt" + (i+1)).GetComponent<Text>().text = price[i].ToString();
 		}
 	}
 
-	private int GetPostion()
+	private void GetPostion()
 	{
+
+		Debug.Log(price.Contains(PlayerInfo.winning));
 		if (price.Contains(PlayerInfo.winning))
 		{
-			return price.IndexOf(PlayerInfo.winning);
+			position= price.IndexOf(PlayerInfo.winning);
+			p1 = position + 1;
+			p2 = position - 1;
+			Debug.Log(position);
+			GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
 		}
 
 		for (int i = 0; i < 10; i++)
 		{
-			if (PlayerInfo.winning > price[i] && PlayerInfo.winning < price[i])
+			if (PlayerInfo.winning > price[i] && PlayerInfo.winning < price[i+1])
 			{
-
+				p1 = i;
+				p2 = i + 1;
 			}
 		}
 
 
 
 
-		return 4;
+		
 	}
 
 
-	public void Start_click()
+
+
+	public  void Stop_Normal()
 	{
 		int rnd_int = Random.Range(0, 10);
-		GameObject.Find("box" + (position + 1)).GetComponent<Image>().color = Color.white;
-		GameObject.Find("box" + (position - 1)).GetComponent<Image>().color = Color.white;
-		GameObject.Find("box" + position).GetComponent<Image>().color = Color.white;
+		GameObject.Find("box" + (p1)).GetComponent<Image>().color = Color.white;
+		GameObject.Find("box" + (p2)).GetComponent<Image>().color = Color.white;
+		try
+		{
+			GameObject.Find("box" + position).GetComponent<Image>().color = Color.white;
+		}
+		catch { }
+	
+		
+		
 		if (rnd_int <= 3)
 		{
-			position++;
+			position=p1;
+			p1=position+1;
+			p2 = position - 1;
 		}
 		else if (rnd_int >= 4)
 		{
-			position--;
+			position=p2;
+			p1 = position + 1;
+			p2 = position - 1;
 		}
-		GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
 
+			GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
+		
 	}
 
-	public void End_click()
+
+	public void End_Click()
 	{
+		StartCoroutine(End());
+	}
+
+	public IEnumerator End()
+	{
+		enabled = false;
+		PlayerInfo.winning = price[position];
+		PlayerInfo.money += PlayerInfo.winning;
+		Debug.Log("Leiter beendet:  " + PlayerInfo.winning);
+		yield return new WaitForSeconds(2);
+		SceneManager.LoadScene("SampleScene");
 
 
 	}
+
+
+
+	
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (position - 1 < 1)
+		if (p2 < 0)
 		{
-			enabled = false;
+			StartCoroutine(	End());
+			
 		}
 		else
 		{
-			if (schalter)
-			{
-				GameObject.Find("box" + (position + 1)).GetComponent<Image>().color = Color.red;
-				GameObject.Find("box" + (position - 1)).GetComponent<Image>().color = Color.white;
-				c++;
-			}
-			else
-			{
-				GameObject.Find("box" + (position + 1)).GetComponent<Image>().color = Color.white;
-				GameObject.Find("box" + (position - 1)).GetComponent<Image>().color = Color.red;
-				c++;
-			}
+			
+			
 
-			if (c == 15)
-			{
-				schalter = !schalter;
-				c = 0;
-			}
+				if (schalter)
+				{
+					GameObject.Find("box" + p1).GetComponent<Image>().color = Color.red;
+					GameObject.Find("box" + p2).GetComponent<Image>().color = Color.white;
+					c++;
+				}
+				else
+				{
+					GameObject.Find("box" + p1).GetComponent<Image>().color = Color.white;
+					GameObject.Find("box" + p2).GetComponent<Image>().color = Color.red;
+					c++;
+				}
+
+				if (c == 15)
+				{
+					schalter = !schalter;
+					c = 0;
+				}
+			
 		}
 	}
 }

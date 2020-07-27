@@ -14,6 +14,7 @@ public class CheckWin : MonoBehaviour
 	public Text txtMoney;
 	public Text txtBet;
 	public Text txtWin;
+	private bool oneWin = false;
 
 
 
@@ -21,9 +22,7 @@ public class CheckWin : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		PlayerInfo.money = 500;
-		PlayerInfo.bet = 10;
-		PlayerInfo.winning = 0;
+		UpdateNumbers();
     }
 
 	public void check1()
@@ -35,7 +34,18 @@ public class CheckWin : MonoBehaviour
 
 	public void StartClick()
 	{
-		 PlayerInfo.money -= PlayerInfo.bet;
+		if (oneWin)
+		{
+			PlayerInfo.money += PlayerInfo.winning - PlayerInfo.bet;
+			UpdateNumbers();
+			PlayerInfo.winning = 0;
+			oneWin = false;
+
+		}
+		else
+		{
+			PlayerInfo.money -= PlayerInfo.bet;
+		}
 	}
 
 	public void Switch()
@@ -59,7 +69,7 @@ public class CheckWin : MonoBehaviour
 			}
 		}
 		int jackpot_counter = 0;
-		bool oneWin = false;
+		
 
 		#region Zu Viel IFs
 		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2])
@@ -98,15 +108,13 @@ public class CheckWin : MonoBehaviour
 		{
 			//RAD HIER
 		}
+		
 		if (oneWin)
 		{
-			PlayerInfo.money += PlayerInfo.winning;
-			Debug.Log("EIN GEWINN!!!!!!");
+			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.winning);
 			leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.winning.ToString();
-			PlayerInfo.winning = 0;
 		}
-
 
 		UpdateNumbers();
 
@@ -140,7 +148,7 @@ public class CheckWin : MonoBehaviour
 	{
 		txtMoney.text = PlayerInfo.money.ToString();
 		txtBet.text = PlayerInfo.bet.ToString();
-		
+		txtWin.text = PlayerInfo.winning.ToString();
 	}
 
 
