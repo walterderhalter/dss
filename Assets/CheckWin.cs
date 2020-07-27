@@ -67,6 +67,7 @@ public class CheckWin : MonoBehaviour
 				result[j,i] = Random.Range(0, 3);
 				GameObject.Find(j.ToString()+i.ToString()).GetComponent<Image>().sprite = sprites[result[j,i]];
 			}
+			
 		}
 		int jackpot_counter = 0;
 		
@@ -143,6 +144,8 @@ public class CheckWin : MonoBehaviour
 		}
 	}
 
+
+	
 
 	private void UpdateNumbers()
 	{

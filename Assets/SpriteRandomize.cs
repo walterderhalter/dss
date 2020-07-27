@@ -13,26 +13,38 @@ public class SpriteRandomize : MonoBehaviour
 
     void Start()
     {
-        
-    }
+		counter = UnityEngine.Random.Range(0, sprites.Length);
+		InvokeRepeating("iUpdate", 0, 0.1f);
+	}
 
+	private int counter;
 
+	void iUpdate()
+	{
+		RandomImage();
+		counter++;
+	}
 
     // Update is called once per frame
     void Update()
     {
-		RandomImage();
+		
 		
     }
 
 	 void RandomImage()
 	{
-		gameObject.GetComponent<UnityEngine.UI.Image>().sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];	
+		if (counter >= sprites.Length)
+		{
+			counter = 0;
+		}
+		gameObject.GetComponent<UnityEngine.UI.Image>().sprite = sprites[counter];	
 	}
 
 	void EndRand()
 	{
 		enabled = false;
+		CancelInvoke();
 		gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
 	}
 
@@ -43,6 +55,7 @@ public class SpriteRandomize : MonoBehaviour
 
 	public void StartRand()
 	{
+		InvokeRepeating("iUpdate", 0, 0.1f);
 		enabled = true;
 	}
 }
