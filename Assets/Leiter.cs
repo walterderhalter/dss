@@ -12,6 +12,7 @@ public class Leiter : MonoBehaviour
 
 
 	private int position;
+	private bool start=true;
 	private bool schalter;
 	private int c;
 	private int p1;
@@ -24,11 +25,9 @@ public class Leiter : MonoBehaviour
 	{
 		
 		SetPrice();
-		Debug.Log("SetPrice");
 		SetButtons();
-		Debug.Log("SetButtons");
 		GetPostion();
-		Debug.Log("GetPosi");
+		
 
 		schalter = true;
 		
@@ -55,7 +54,6 @@ public class Leiter : MonoBehaviour
 
 	private void GetPostion()
 	{
-
 		Debug.Log(price.Contains(PlayerInfo.winning));
 		if (price.Contains(PlayerInfo.winning))
 		{
@@ -74,11 +72,6 @@ public class Leiter : MonoBehaviour
 				p2 = i + 1;
 			}
 		}
-
-
-
-
-		
 	}
 
 
@@ -86,6 +79,7 @@ public class Leiter : MonoBehaviour
 
 	public  void Stop_Normal()
 	{
+		start = false;
 		int rnd_int = Random.Range(0, 10);
 		GameObject.Find("box" + (p1)).GetComponent<Image>().color = Color.white;
 		GameObject.Find("box" + (p2)).GetComponent<Image>().color = Color.white;
@@ -123,7 +117,8 @@ public class Leiter : MonoBehaviour
 	public IEnumerator End()
 	{
 		enabled = false;
-		PlayerInfo.winning = price[position];
+		
+		if (!start) PlayerInfo.winning = price[position];
 		PlayerInfo.money += PlayerInfo.winning;
 		Debug.Log("Leiter beendet:  " + PlayerInfo.winning);
 		yield return new WaitForSeconds(2);
