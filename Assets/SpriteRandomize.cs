@@ -15,6 +15,8 @@ public class SpriteRandomize : MonoBehaviour
     {
 		counter = UnityEngine.Random.Range(0, sprites.Length);
 		InvokeRepeating("iUpdate", 0, 0.1f);
+
+		
 	}
 
 	private int counter;

@@ -15,6 +15,8 @@ public class CheckWin : MonoBehaviour
 	public Text txtBet;
 	public Text txtWin;
 	private bool oneWin = false;
+	private int[] bets = new int[5] { 10, 20, 50, 100, 200 };
+	private int betIndex = 0;
 
 
 
@@ -45,6 +47,7 @@ public class CheckWin : MonoBehaviour
 		else
 		{
 			PlayerInfo.money -= PlayerInfo.bet;
+			UpdateNumbers();
 		}
 	}
 
@@ -123,6 +126,15 @@ public class CheckWin : MonoBehaviour
 	}
 
 
+	public void SwitchBet()
+	{
+		betIndex++;
+		Debug.Log(betIndex);
+		if (betIndex >= bets.Length) betIndex = 0;
+		PlayerInfo.bet = bets[betIndex];
+		txtBet.text = PlayerInfo.bet.ToString();
+		Debug.Log(txtBet.text);
+	}
 	
 
 	private void calcWin(int item)
