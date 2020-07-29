@@ -27,11 +27,7 @@ public class CheckWin : MonoBehaviour
 		UpdateNumbers();
     }
 
-	public void check1()
-	{
 
-		Invoke("Check", 0);
-	}
 
 
 	public void StartClick()
@@ -49,6 +45,7 @@ public class CheckWin : MonoBehaviour
 			PlayerInfo.money -= PlayerInfo.bet;
 			UpdateNumbers();
 		}
+		Invoke("Check", 2);
 	}
 
 	public void Switch()

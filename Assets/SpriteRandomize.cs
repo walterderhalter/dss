@@ -14,9 +14,11 @@ public class SpriteRandomize : MonoBehaviour
     void Start()
     {
 		counter = UnityEngine.Random.Range(0, sprites.Length);
-		InvokeRepeating("iUpdate", 0, 0.1f);
+		RandomImage();
+		StopTime = 2;
+		enabled = false;
 
-		
+
 	}
 
 	private int counter;
@@ -50,14 +52,13 @@ public class SpriteRandomize : MonoBehaviour
 		gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
 	}
 
-	public void StopRand()
-	{
-		Invoke("EndRand",StopTime);
-	}
 
 	public void StartRand()
 	{
 		InvokeRepeating("iUpdate", 0, 0.1f);
 		enabled = true;
+		Invoke("EndRand", StopTime);
 	}
+
+
 }
