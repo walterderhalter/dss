@@ -15,6 +15,7 @@ public class CheckWin : MonoBehaviour
 	public Text txtMoney;
 	public Text txtBet;
 	public Text txtWin;
+	public SpriteRenderer[] lines;
 	private bool oneWin = false;
 	private int[] bets = new int[5] { 10, 20, 50, 100, 200 };
 	private int betIndex = 0;
@@ -26,6 +27,7 @@ public class CheckWin : MonoBehaviour
 	void Start()
     {
 		UpdateNumbers();
+		
     }
 
 
@@ -39,6 +41,8 @@ public class CheckWin : MonoBehaviour
 			UpdateNumbers();
 			PlayerInfo.winning = 0;
 			oneWin = false;
+			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
+
 
 		}
 		else
@@ -66,13 +70,13 @@ public class CheckWin : MonoBehaviour
 			
 			for (int i = 0; i < 3; i++)
 			{
-				result[j,i] = Random.Range(0, 6);
+				result[j, i] = GetSymbol(); 
 				GameObject.Find(j.ToString()+i.ToString()).GetComponent<Image>().sprite = sprites[result[j,i]];
 			}
 			
 		}
 
-
+		
 
 		int jackpot_counter = 0;
 		#region Zu Viel IFs
@@ -82,30 +86,35 @@ public class CheckWin : MonoBehaviour
 			CalcWin(result[0, 0]);
 			oneWin = true;
 			jackpot_counter++;
+			lines[0].gameObject.SetActive(true);
 		}
 		if(result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2] && result[1, 0] != 0)
 		{
 			CalcWin(result[1,0]);
 			oneWin = true;
 			jackpot_counter++;
+			lines[1].gameObject.SetActive(true);
 		}
 		if (result[2, 0] == result[2, 1] && result[2, 1] == result[2, 2] && result[2, 0] != 0)
 		{
 			CalcWin(result[2, 0]);
 			oneWin = true;
 			jackpot_counter++;
+			lines[2].gameObject.SetActive(true);
 		}
 		if (result[0, 0] == result[1, 1] && result[1, 1] == result[2, 2] && result[0, 0] != 0)
 		{
 			CalcWin(result[0, 0]);
 			oneWin = true;
 			jackpot_counter++;
+			lines[3].gameObject.SetActive(true);
 		}
 		if (result[2, 0] == result[1, 1] && result[1, 1] == result[0, 2] && result[2, 0] != 0)
 		{
 			CalcWin(result[2, 0]);
 			oneWin = true;
 			jackpot_counter++;
+			lines[4].gameObject.SetActive(true);
 		}
 		#endregion
 		#endregion
@@ -127,6 +136,18 @@ public class CheckWin : MonoBehaviour
 
 	}
 
+	private int GetSymbol()
+	{
+		int erg = Random.Range(1, 101);
+
+		if (erg <= 5) return 5;			//5%
+		if (erg <= 13) return 4;			//8%
+		if (erg <= 25) return 3;			//12%
+		if (erg <= 40) return 2;			//15%
+		if (erg <= 65) return 1;			//25%
+		if (erg <= 100) return 0;       //35%
+		return 0;
+	}
 
 	public void SwitchBet()
 	{
