@@ -10,7 +10,8 @@ public class CheckWin : MonoBehaviour
 {
 
 	public Sprite[] sprites;
-	public Button leiter;
+	public Button btn_Leiter;
+	public Button btn_Start;
 	public Text txtMoney;
 	public Text txtBet;
 	public Text txtWin;
@@ -45,6 +46,7 @@ public class CheckWin : MonoBehaviour
 			PlayerInfo.money -= PlayerInfo.bet;
 			UpdateNumbers();
 		}
+		btn_Start.gameObject.SetActive(false);
 		Invoke("Check", 2);
 	}
 
@@ -64,61 +66,64 @@ public class CheckWin : MonoBehaviour
 			
 			for (int i = 0; i < 3; i++)
 			{
-				result[j,i] = Random.Range(0, 3);
+				result[j,i] = Random.Range(0, 6);
 				GameObject.Find(j.ToString()+i.ToString()).GetComponent<Image>().sprite = sprites[result[j,i]];
 			}
 			
 		}
-		int jackpot_counter = 0;
-		
 
+
+
+		int jackpot_counter = 0;
 		#region Zu Viel IFs
-		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2])
+		#region Bitte lass es zu, des is echt peinlich 
+		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2]&&result[0,0]!=0)
 		{
-			calcWin(result[0, 0]);
+			CalcWin(result[0, 0]);
 			oneWin = true;
 			jackpot_counter++;
 		}
-		if(result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2])
+		if(result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2] && result[1, 0] != 0)
 		{
-			calcWin(result[1,0]);
+			CalcWin(result[1,0]);
 			oneWin = true;
 			jackpot_counter++;
 		}
-		if (result[2, 0] == result[2, 1] && result[2, 1] == result[2, 2])
+		if (result[2, 0] == result[2, 1] && result[2, 1] == result[2, 2] && result[2, 0] != 0)
 		{
-			calcWin(result[2, 0]);
+			CalcWin(result[2, 0]);
 			oneWin = true;
 			jackpot_counter++;
 		}
-		if (result[0, 0] == result[1, 1] && result[1, 1] == result[2, 2])
+		if (result[0, 0] == result[1, 1] && result[1, 1] == result[2, 2] && result[0, 0] != 0)
 		{
-			calcWin(result[0, 0]);
+			CalcWin(result[0, 0]);
 			oneWin = true;
 			jackpot_counter++;
 		}
-		if (result[2, 0] == result[1, 1] && result[1, 1] == result[0, 2])
+		if (result[2, 0] == result[1, 1] && result[1, 1] == result[0, 2] && result[2, 0] != 0)
 		{
-			calcWin(result[2, 0]);
+			CalcWin(result[2, 0]);
 			oneWin = true;
 			jackpot_counter++;
 		}
+		#endregion
 		#endregion
 
 		if (jackpot_counter == 5)
 		{
 			//RAD HIER
 		}
-		
+		//Hier könnte man oneWin und jackpotcounter zusammen legen und sich ein If sparen
 		if (oneWin)
 		{
 			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.winning);
-			leiter.gameObject.SetActive(true);
+			btn_Leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.winning.ToString();
 		}
 
 		UpdateNumbers();
-
+		btn_Start.gameObject.SetActive(true);
 
 	}
 
@@ -134,18 +139,26 @@ public class CheckWin : MonoBehaviour
 	}
 	
 
-	private void calcWin(int item)
+	private void CalcWin(int item)
 	{
 		switch (item)
 		{
 			case 0:
-				PlayerInfo.winning += PlayerInfo.bet * 2;
 				break;
 			case 1:
-				PlayerInfo.winning += PlayerInfo.bet * 4;
+				PlayerInfo.winning += PlayerInfo.bet * 2;
 				break;
 			case 2:
-				PlayerInfo.winning += PlayerInfo.bet * 6;
+				PlayerInfo.winning += PlayerInfo.bet * 3;
+				break;
+			case 3:
+				PlayerInfo.winning += PlayerInfo.bet * 5;
+				break;
+			case 4:
+				PlayerInfo.winning += PlayerInfo.bet * 10;
+				break;
+			case 5:
+				PlayerInfo.winning += PlayerInfo.bet * 15;
 				break;
 
 			default:
