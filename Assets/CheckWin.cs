@@ -27,8 +27,8 @@ public class CheckWin : MonoBehaviour
 	void Start()
     {
 		UpdateNumbers();
-		
-    }
+		txtWin.text = PlayerInfo.winning.ToString();
+	}
 
 
 
@@ -39,8 +39,9 @@ public class CheckWin : MonoBehaviour
 		if (oneWin)
 		{
 			PlayerInfo.money += PlayerInfo.winning - PlayerInfo.bet;
+			txtWin.text = PlayerInfo.winning.ToString();
 			UpdateNumbers();
-			PlayerInfo.winning = 0;
+
 			oneWin = false;
 			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
 
@@ -51,6 +52,7 @@ public class CheckWin : MonoBehaviour
 			PlayerInfo.money -= PlayerInfo.bet;
 			UpdateNumbers();
 		}
+		PlayerInfo.winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		Invoke("Check", 2);
 	}
@@ -148,6 +150,7 @@ public class CheckWin : MonoBehaviour
 		if (erg <= 75) return 1;			//25%
 		if (erg <= 100) return 0;       //25%
 		return 0;
+
 	}
 
 	public void SwitchBet()
@@ -163,6 +166,7 @@ public class CheckWin : MonoBehaviour
 
 	private void CalcWin(int item)
 	{
+		PlayerInfo.winning = 0;
 		switch (item)
 		{
 			case 0:
@@ -171,16 +175,16 @@ public class CheckWin : MonoBehaviour
 				PlayerInfo.winning += PlayerInfo.bet * 2;
 				break;
 			case 2:
-				PlayerInfo.winning += PlayerInfo.bet * 3;
-				break;
-			case 3:
 				PlayerInfo.winning += PlayerInfo.bet * 5;
 				break;
-			case 4:
+			case 3:
 				PlayerInfo.winning += PlayerInfo.bet * 10;
 				break;
-			case 5:
+			case 4:
 				PlayerInfo.winning += PlayerInfo.bet * 15;
+				break;
+			case 5:
+				PlayerInfo.winning += PlayerInfo.bet * 20;
 				break;
 
 			default:
@@ -195,7 +199,7 @@ public class CheckWin : MonoBehaviour
 	{
 		txtMoney.text = PlayerInfo.money.ToString();
 		txtBet.text = PlayerInfo.bet.ToString();
-		txtWin.text = PlayerInfo.winning.ToString();
+		
 	}
 
 
