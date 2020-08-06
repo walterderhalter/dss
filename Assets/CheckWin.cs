@@ -27,8 +27,11 @@ public class CheckWin : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		if (PlayerPrefs.HasKey("Money")) PlayerInfo.money = PlayerPrefs.GetInt("Money");
+		else PlayerInfo.money = 500; PlayerPrefs.SetInt("Money", 500);
 		UpdateNumbers();
 		txtWin.text = PlayerInfo.winning.ToString();
+
 	}
 
 
@@ -42,6 +45,7 @@ public class CheckWin : MonoBehaviour
 			PlayerInfo.money += PlayerInfo.winning - PlayerInfo.bet;
 			txtWin.text = PlayerInfo.winning.ToString();
 			UpdateNumbers();
+			PlayerPrefs.SetInt("Money", PlayerInfo.money);
 
 			oneWin = false;
 			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
