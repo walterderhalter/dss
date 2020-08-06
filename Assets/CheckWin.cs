@@ -142,11 +142,11 @@ public class CheckWin : MonoBehaviour
 		int erg = Random.Range(1, 101);
 
 		if (erg <= 5) return 5;			//5%
-		if (erg <= 13) return 4;			//8%
-		if (erg <= 25) return 3;			//12%
-		if (erg <= 40) return 2;			//15%
-		if (erg <= 65) return 1;			//25%
-		if (erg <= 100) return 0;       //35%
+		if (erg <= 20) return 4;			//15%
+		if (erg <= 35) return 3;			//15%
+		if (erg <= 50) return 2;			//15%
+		if (erg <= 75) return 1;			//25%
+		if (erg <= 100) return 0;       //25%
 		return 0;
 	}
 
