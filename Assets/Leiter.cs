@@ -139,6 +139,12 @@ public class Leiter : MonoBehaviour
 			StartCoroutine(	End());
 			
 		}
+		if(p1 > 9)
+		{
+
+			StartCoroutine(End());
+		}
+
 		else
 		{
 			

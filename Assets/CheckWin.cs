@@ -54,8 +54,8 @@ public class CheckWin : MonoBehaviour
 			UpdateNumbers();
 		}
 		PlayerInfo.winning = 0;
-		btn_Bet.gameObject.SetActive(false);
 		btn_Start.gameObject.SetActive(false);
+		btn_Bet.gameObject.SetActive(false);
 		Invoke("Check", 2);
 	}
 

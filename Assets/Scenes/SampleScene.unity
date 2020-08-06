@@ -1253,7 +1253,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6f59ff5075cdf584bb23bd3a023fce63, type: 3}
   btn_Leiter: {fileID: 225034673}
   btn_Start: {fileID: 873698040}
-  btn_Bet: {fileID: 0}
+  btn_Bet: {fileID: 1087779459}
   txtMoney: {fileID: 2052411371}
   txtBet: {fileID: 861446833}
   txtWin: {fileID: 1272217842}
