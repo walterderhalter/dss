@@ -12,6 +12,7 @@ public class CheckWin : MonoBehaviour
 	public Sprite[] sprites;
 	public Button btn_Leiter;
 	public Button btn_Start;
+	public Button btn_Bet;
 	public Text txtMoney;
 	public Text txtBet;
 	public Text txtWin;
@@ -53,6 +54,7 @@ public class CheckWin : MonoBehaviour
 			UpdateNumbers();
 		}
 		PlayerInfo.winning = 0;
+		btn_Bet.gameObject.SetActive(false);
 		btn_Start.gameObject.SetActive(false);
 		Invoke("Check", 2);
 	}
@@ -136,6 +138,7 @@ public class CheckWin : MonoBehaviour
 
 		UpdateNumbers();
 		btn_Start.gameObject.SetActive(true);
+		btn_Bet.gameObject.SetActive(true);
 
 	}
 
