@@ -135,13 +135,11 @@ public class Leiter : MonoBehaviour
 	void Update()
 	{
 		if (p2 < 0)
-		{
-			StartCoroutine(	End());
+			StartCoroutine(End());
 			
-		}
 		if(p1 > 9)
 		{
-
+			//Musik Hier
 			StartCoroutine(End());
 		}
 
