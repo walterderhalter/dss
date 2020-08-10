@@ -40,7 +40,7 @@ public class Leiter : MonoBehaviour
 
 		for (int i = 0; i < 10; i++)
 		{
-			price[i] = multipliaktoren[i] * PlayerInfo.bet;
+			price[i] = multipliaktoren[i] * PlayerInfo.Bet;
 		}
 
 	}
@@ -54,10 +54,10 @@ public class Leiter : MonoBehaviour
 
 	private void GetPostion()
 	{
-		Debug.Log(price.Contains(PlayerInfo.winning));
-		if (price.Contains(PlayerInfo.winning))
+		Debug.Log(price.Contains(PlayerInfo.Winning));
+		if (price.Contains(PlayerInfo.Winning))
 		{
-			position= price.IndexOf(PlayerInfo.winning);
+			position= price.IndexOf(PlayerInfo.Winning);
 			p1 = position + 1;
 			p2 = position - 1;
 			Debug.Log(position);
@@ -66,7 +66,7 @@ public class Leiter : MonoBehaviour
 
 		for (int i = 0; i < 10; i++)
 		{
-			if (PlayerInfo.winning > price[i] && PlayerInfo.winning < price[i+1])
+			if (PlayerInfo.Winning > price[i] && PlayerInfo.Winning < price[i+1])
 			{
 				p1 = i;
 				p2 = i + 1;
@@ -118,12 +118,11 @@ public class Leiter : MonoBehaviour
 	{
 		enabled = false;
 		
-		if (!start) PlayerInfo.winning = price[position];
-		PlayerInfo.money += PlayerInfo.winning;
-		Debug.Log(PlayerInfo.money);
-		PlayerPrefs.SetInt("Money", PlayerInfo.money);
-		PlayerPrefs.Save();
-		Debug.Log("Leiter beendet:  " + PlayerInfo.winning);
+		if (!start) PlayerInfo.Winning = price[position];
+		PlayerInfo.Money += PlayerInfo.Winning;
+		Debug.Log(PlayerInfo.Money);
+		PlayerInfo.Save();
+		Debug.Log("Leiter beendet:  " + PlayerInfo.Winning);
 		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene("SampleScene");
 

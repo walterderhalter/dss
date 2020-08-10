@@ -29,16 +29,16 @@ public class CheckWin : MonoBehaviour
 	{
 		if (PlayerPrefs.HasKey("Money"))
 		{
-			PlayerInfo.money = PlayerPrefs.GetInt("Money");
+			PlayerInfo.Money = PlayerPrefs.GetInt("Money");
 		}
 		else
 		{
-			PlayerInfo.money = 500;
+			PlayerInfo.Money = 500;
 			PlayerPrefs.SetInt("Money", 500);
 		}
 		PlayerPrefs.Save();
 		UpdateNumbers();
-		txtWin.text = PlayerInfo.winning.ToString();
+		txtWin.text = PlayerInfo.Winning.ToString();
 
 	}
 
@@ -48,12 +48,11 @@ public class CheckWin : MonoBehaviour
 
 	public void StartClick()
 	{
-		PlayerPrefs.SetInt("Money", PlayerInfo.money);
-		PlayerPrefs.Save();
+		PlayerInfo.Save();
 		if (oneWin)
 		{
-			PlayerInfo.money += PlayerInfo.winning - PlayerInfo.bet;
-			txtWin.text = PlayerInfo.winning.ToString();
+			PlayerInfo.Money += PlayerInfo.Winning - PlayerInfo.Bet;
+			txtWin.text = PlayerInfo.Winning.ToString();
 			UpdateNumbers();
 			oneWin = false;
 			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
@@ -62,10 +61,10 @@ public class CheckWin : MonoBehaviour
 		}
 		else
 		{
-			PlayerInfo.money -= PlayerInfo.bet;
+			PlayerInfo.Money -= PlayerInfo.Bet;
 			UpdateNumbers();
 		}
-		PlayerInfo.winning = 0;
+		PlayerInfo.Winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		btn_Bet.gameObject.SetActive(false);
 		Invoke("Check", 2);
@@ -99,7 +98,7 @@ public class CheckWin : MonoBehaviour
 		int jackpot_counter = 0;
 		#region Zu Viel IFs
 		#region Bitte lass es zu, des is echt peinlich 
-		PlayerInfo.winning = 0;
+		PlayerInfo.Winning = 0;
 		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2]&&result[0,0]!=0)
 		{
 			CalcWin(result[0, 0]);
@@ -145,9 +144,9 @@ public class CheckWin : MonoBehaviour
 		//Hier könnte man oneWin und jackpotcounter zusammen legen und sich ein If sparen
 		if (oneWin)
 		{
-			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.winning);
+			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.Winning);
 			btn_Leiter.gameObject.SetActive(true);
-			txtWin.text = PlayerInfo.winning.ToString();
+			txtWin.text = PlayerInfo.Winning.ToString();
 		}
 
 		UpdateNumbers();
@@ -175,8 +174,8 @@ public class CheckWin : MonoBehaviour
 		betIndex++;
 		Debug.Log(betIndex);
 		if (betIndex >= bets.Length) betIndex = 0;
-		PlayerInfo.bet = bets[betIndex];
-		txtBet.text = PlayerInfo.bet.ToString();
+		PlayerInfo.Bet = bets[betIndex];
+		txtBet.text = PlayerInfo.Bet.ToString();
 		Debug.Log(txtBet.text);
 	}
 	
@@ -189,19 +188,19 @@ public class CheckWin : MonoBehaviour
 			case 0:
 				break;
 			case 1:
-				PlayerInfo.winning += PlayerInfo.bet * 2;
+				PlayerInfo.Winning += PlayerInfo.Bet * 2;
 				break;
 			case 2:
-				PlayerInfo.winning += PlayerInfo.bet * 5;
+				PlayerInfo.Winning += PlayerInfo.Bet * 5;
 				break;
 			case 3:
-				PlayerInfo.winning += PlayerInfo.bet * 10;
+				PlayerInfo.Winning += PlayerInfo.Bet * 10;
 				break;
 			case 4:
-				PlayerInfo.winning += PlayerInfo.bet * 15;
+				PlayerInfo.Winning += PlayerInfo.Bet * 15;
 				break;
 			case 5:
-				PlayerInfo.winning += PlayerInfo.bet * 20;
+				PlayerInfo.Winning += PlayerInfo.Bet * 20;
 				break;
 
 			default:
@@ -214,8 +213,8 @@ public class CheckWin : MonoBehaviour
 
 	private void UpdateNumbers()
 	{
-		txtMoney.text = PlayerInfo.money.ToString();
-		txtBet.text = PlayerInfo.bet.ToString();
+		txtMoney.text = PlayerInfo.Money.ToString();
+		txtBet.text = PlayerInfo.Bet.ToString();
 		
 	}
 
