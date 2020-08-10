@@ -120,6 +120,9 @@ public class Leiter : MonoBehaviour
 		
 		if (!start) PlayerInfo.winning = price[position];
 		PlayerInfo.money += PlayerInfo.winning;
+		Debug.Log(PlayerInfo.money);
+		PlayerPrefs.SetInt("Money", PlayerInfo.money);
+		PlayerPrefs.Save();
 		Debug.Log("Leiter beendet:  " + PlayerInfo.winning);
 		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene("SampleScene");
