@@ -17,8 +17,6 @@ public class SpriteRandomize : MonoBehaviour
 		RandomImage();
 		StopTime = 2;
 		enabled = false;
-
-
 	}
 
 	//Eigene Update Funktion mit einstellbarer Framerate

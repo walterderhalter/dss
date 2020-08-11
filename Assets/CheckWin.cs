@@ -80,17 +80,11 @@ public class CheckWin : MonoBehaviour
 	{
 		int[,] result = new int[3, 3];
 
-
-		for (int j = 0; j < 3; j++)
-		{
-
-			for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)for (int i = 0; i < 3; i++)
 			{
 				result[j, i] = GetSymbol();
 				GameObject.Find(j.ToString() + i.ToString()).GetComponent<Image>().sprite = sprites[result[j, i]];
 			}
-
-		}
 
 		Check(result);
 	}
