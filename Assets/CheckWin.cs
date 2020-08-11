@@ -56,8 +56,6 @@ public class CheckWin : MonoBehaviour
 			UpdateNumbers();
 			oneWin = false;
 			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
-
-
 		}
 		else
 		{
@@ -67,32 +65,39 @@ public class CheckWin : MonoBehaviour
 		PlayerInfo.Winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		btn_Bet.gameObject.SetActive(false);
-		Invoke("Check", 2);
+		Invoke("Roll", 2);
 	}
 
+	//Wechselt auf die Leiter
 	public void Switch()
 	{
 		btn_Leiter.gameObject.SetActive(false);
 		SceneManager.LoadScene("Leiter");
 	}
 
-
-	public void Check()
+	//Rollt die Ergebnisse 
+	public void Roll()
 	{
 		int[,] result = new int[3, 3];
 
 
 		for (int j = 0; j < 3; j++)
 		{
-			
+
 			for (int i = 0; i < 3; i++)
 			{
-				result[j, i] = GetSymbol(); 
-				GameObject.Find(j.ToString()+i.ToString()).GetComponent<Image>().sprite = sprites[result[j,i]];
+				result[j, i] = GetSymbol();
+				GameObject.Find(j.ToString() + i.ToString()).GetComponent<Image>().sprite = sprites[result[j, i]];
 			}
-			
+
 		}
 
+		Check(result);
+	}
+
+	//Checkt nach Gewinn
+	public void Check(int[,]result)
+	{
 		
 
 		int jackpot_counter = 0;
@@ -155,6 +160,7 @@ public class CheckWin : MonoBehaviour
 
 	}
 
+	//Gibt ein zufälliges Symbol zurück
 	private int GetSymbol()
 	{
 		int erg = Random.Range(1, 101);
@@ -169,17 +175,17 @@ public class CheckWin : MonoBehaviour
 
 	}
 
+	//Wechselt den Einsatz
 	public void SwitchBet()
 	{
 		betIndex++;
-		Debug.Log(betIndex);
 		if (betIndex >= bets.Length) betIndex = 0;
 		PlayerInfo.Bet = bets[betIndex];
 		txtBet.text = PlayerInfo.Bet.ToString();
 		Debug.Log(txtBet.text);
 	}
 	
-
+	//Erechnet anhand des Einsatzs und des
 	private void CalcWin(int item)
 	{
 
@@ -208,16 +214,13 @@ public class CheckWin : MonoBehaviour
 		}
 	}
 
-
-	
-
+	//Aktualisiert die angezeigen Zahlen
 	private void UpdateNumbers()
 	{
 		txtMoney.text = PlayerInfo.Money.ToString();
 		txtBet.text = PlayerInfo.Bet.ToString();
 		
 	}
-
 
 	// Update is called once per frame
 	void Update()
