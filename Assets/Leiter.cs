@@ -11,30 +11,28 @@ public class Leiter : MonoBehaviour
 
 
 
-	private int position;
-	private bool start=true;
-	private bool schalter;
-	private int c;
-	private int p1;
-	private int p2;
-	private List<int> price;
+	private int position;				//Derzeitige Position der Leiter			
+	private int p1;						//Position für Leiter +1
+	private int p2;						//Position für Leiter -1
+	private bool start=true;			//Bool 
+	private bool schalter;			//Framerate Begrenzer
+	private int c;							//Counter für Update
+	private List<int> price;			//Leiter Preisliste
 	private protected int[] multipliaktoren = new int[] { 0, 2, 5, 7, 10, 20, 40, 70, 100, 200 };
+
 
 	// Start is called before the first frame update
 	void Start()
-	{
-		
-		SetPrice();
+	{ 
+		CalcPrice();
 		SetButtons();
 		GetPostion();
-		
-
 		schalter = true;
 		
 	}
 
-
-	private void SetPrice()
+	//Errechnet die Preisliste anhand des Einsatzs
+	private void CalcPrice()
 	{
 		price = new List<int>() { 0,0,0,0,0,0,0,0,0,0};
 
@@ -44,6 +42,8 @@ public class Leiter : MonoBehaviour
 		}
 
 	}
+
+	//Setzt die Buttons anhand der Preisliste
 	private void SetButtons()
 	{
 		for (int i = 0; i < 10; i++)
@@ -52,6 +52,7 @@ public class Leiter : MonoBehaviour
 		}
 	}
 
+	//Sucht die Start Position anhand des Gewinns
 	private void GetPostion()
 	{
 		Debug.Log(price.Contains(PlayerInfo.Winning));
@@ -74,10 +75,8 @@ public class Leiter : MonoBehaviour
 		}
 	}
 
-
-
-
-	public  void Stop_Normal()
+	//Stopt die Leiter
+	public  void Stop()
 	{
 		start = false;
 		int rnd_int = Random.Range(0, 10);
@@ -108,12 +107,13 @@ public class Leiter : MonoBehaviour
 		
 	}
 
-
+	//Click Event für End :D
 	public void End_Click()
 	{
 		StartCoroutine(End());
 	}
 
+	//Beendet die Leiter Szene
 	public IEnumerator End()
 	{
 		enabled = false;
@@ -125,8 +125,6 @@ public class Leiter : MonoBehaviour
 		Debug.Log("Leiter beendet:  " + PlayerInfo.Winning);
 		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene("SampleScene");
-
-
 	}
 
 
@@ -147,9 +145,6 @@ public class Leiter : MonoBehaviour
 
 		else
 		{
-			
-			
-
 				if (schalter)
 				{
 					GameObject.Find("box" + p1).GetComponent<Image>().color = Color.red;

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class SpriteRandomize : MonoBehaviour
 {
-	public Sprite[] sprites;
-	public float StopTime;
-	public int Erg;
+	public Sprite[] sprites;	//Iconliste
+	public float StopTime;	//Stopt die Methode (in sek) Achtung!!!: Muss immer mit der Invoke Zeit in CheckWin übereinstimmen
+	private int counter;		//Counter für iUpdate
 
 
-    void Start()
+	void Start()
     {
 		counter = UnityEngine.Random.Range(0, sprites.Length);
 		RandomImage();
@@ -21,21 +21,14 @@ public class SpriteRandomize : MonoBehaviour
 
 	}
 
-	private int counter;
-
+	//Eigene Update Funktion mit einstellbarer Framerate
 	void iUpdate()
 	{
 		RandomImage();
 		counter++;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		
-		
-    }
-
+	//Wählt ein zufälliges Bild aus der Liste aus
 	 void RandomImage()
 	{
 		if (counter >= sprites.Length)
@@ -45,6 +38,15 @@ public class SpriteRandomize : MonoBehaviour
 		gameObject.GetComponent<UnityEngine.UI.Image>().sprite = sprites[counter];	
 	}
 
+	//Startet das Drehen 
+	public void StartRand()
+	{
+		InvokeRepeating("iUpdate", 0, 0.1f);
+		enabled = true;
+		Invoke("EndRand", StopTime);
+	}
+
+	//Beendet da drehen (wird von StartRand nach StopTime aufgerufen)
 	void EndRand()
 	{
 		enabled = false;
@@ -53,12 +55,15 @@ public class SpriteRandomize : MonoBehaviour
 	}
 
 
-	public void StartRand()
+	
+
+
+
+
+	// Update is called once per frame
+	void Update()
 	{
-		InvokeRepeating("iUpdate", 0, 0.1f);
-		enabled = true;
-		Invoke("EndRand", StopTime);
+
+
 	}
-
-
 }
