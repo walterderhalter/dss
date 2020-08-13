@@ -56,6 +56,7 @@
     <Compile Include="Assets\PlayerInfo.cs" />
     <Compile Include="Assets\CheckWin.cs" />
     <Compile Include="Assets\SpriteRandomize.cs" />
+    <Compile Include="Assets\InfoCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
