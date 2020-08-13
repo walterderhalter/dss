@@ -1063,8 +1063,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1570045975}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Stop_Normal
+        m_TargetAssemblyTypeName: Leiter, Assembly-CSharp
+        m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

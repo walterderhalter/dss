@@ -5,7 +5,7 @@ using UnityEngine;
 public class InfoCard : MonoBehaviour
 {
 
-	public float speed = 2.0f;
+	public float speed = 2.5f;
 	private bool schalter = false;
 
 	// Start is called before the first frame update
@@ -27,7 +27,11 @@ public class InfoCard : MonoBehaviour
 
 		if (schalter) {
 
-			if (transform.position.y > 7.4) { schalter = false; enabled = false; }
+			if (transform.position.y > 7.15f) {
+				schalter = false;
+				enabled = false;
+				transform.position.Set(transform.position.x,7.2f,transform.position.z) ;
+					}
 
 			else
 				transform.position += transform.up * speed * Time.deltaTime;

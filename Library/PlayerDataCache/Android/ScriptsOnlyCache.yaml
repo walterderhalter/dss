@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CheckWin
+    - InfoCard
     - Leiter
     - SpriteRandomize
     Unity.2D.Tilemap.Editor.dll:
@@ -45,19 +46,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12036}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 14262}
+      Script: {instanceID: 14260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -96,21 +97,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 12036}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12512}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13266}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 14262}
+      Script: {instanceID: 13994}
+    - Class: 114
+      Script: {instanceID: 14260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -552,6 +555,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InfoCard
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
