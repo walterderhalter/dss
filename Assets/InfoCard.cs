@@ -13,7 +13,7 @@ public class InfoCard : MonoBehaviour
 	{
 		Debug.Log(transform.position);
 		enabled = false;
-		
+
 	}
 
 	public void StartClick()
@@ -25,20 +25,23 @@ public class InfoCard : MonoBehaviour
 	void Update()
 	{
 
-		if (schalter) {
+		if (schalter)
+		{
 
-			if (transform.position.y > 7.15f) {
+			if (transform.position.y > 7.15f)
+			{
+				transform.position.Set(transform.position.x, 7.2f, transform.position.z);
 				schalter = false;
 				enabled = false;
-				transform.position.Set(transform.position.x,7.2f,transform.position.z) ;
-					}
+
+			}
 
 			else
 				transform.position += transform.up * speed * Time.deltaTime;
 		}
 		else
 		{
-			if (transform.position.y < 2.9) { schalter = true; enabled = false; }
+			if (transform.position.y < 2.9f) { schalter = true; enabled = false; }
 
 			else
 				transform.position += -transform.up * speed * Time.deltaTime;
