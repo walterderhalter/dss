@@ -47,4 +47,5 @@ public class InfoCard : MonoBehaviour
 				transform.position += -transform.up * speed * Time.deltaTime;
 		}
 	}
+
 }

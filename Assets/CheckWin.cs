@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 public class CheckWin : MonoBehaviour
 {
 
+	public AudioSource winSound;
+	public AudioSource loseSound;
 	public Sprite[] sprites;
 	public Button btn_Leiter;
 	public Button btn_Start;
@@ -55,7 +57,7 @@ public class CheckWin : MonoBehaviour
 			txtWin.text = PlayerInfo.Winning.ToString();
 			UpdateNumbers();
 			oneWin = false;
-			for (int i = 0; i < lines.Length; i++)lines[i].gameObject.SetActive(false);
+			for (int i = 0; i < lines.Length; i++) lines[i].gameObject.SetActive(false);
 		}
 		else
 		{
@@ -80,7 +82,7 @@ public class CheckWin : MonoBehaviour
 	{
 		int[,] result = new int[3, 3];
 
-		for (int j = 0; j < 3; j++)for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++) for (int i = 0; i < 3; i++)
 			{
 				result[j, i] = GetSymbol();
 				GameObject.Find(j.ToString() + i.ToString()).GetComponent<Image>().sprite = sprites[result[j, i]];
@@ -90,24 +92,22 @@ public class CheckWin : MonoBehaviour
 	}
 
 	//Checkt nach Gewinn
-	public void Check(int[,]result)
+	public void Check(int[,] result)
 	{
-		
-
 		int jackpot_counter = 0;
 		#region Zu Viel IFs
 		#region Bitte lass es zu, des is echt peinlich 
 		PlayerInfo.Winning = 0;
-		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2]&&result[0,0]!=0)
+		if (result[0, 0] == result[0, 1] && result[0, 1] == result[0, 2] && result[0, 0] != 0)
 		{
 			CalcWin(result[0, 0]);
 			oneWin = true;
 			jackpot_counter++;
 			lines[0].gameObject.SetActive(true);
 		}
-		if(result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2] && result[1, 0] != 0)
+		if (result[1, 0] == result[1, 1] && result[1, 1] == result[1, 2] && result[1, 0] != 0)
 		{
-			CalcWin(result[1,0]);
+			CalcWin(result[1, 0]);
 			oneWin = true;
 			jackpot_counter++;
 			lines[1].gameObject.SetActive(true);
@@ -144,8 +144,13 @@ public class CheckWin : MonoBehaviour
 		if (oneWin)
 		{
 			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.Winning);
+			winSound.Play();
 			btn_Leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.Winning.ToString();
+		}
+		else
+		{
+			loseSound.Play();
 		}
 
 		UpdateNumbers();
@@ -159,12 +164,12 @@ public class CheckWin : MonoBehaviour
 	{
 		int erg = Random.Range(1, 101);
 
-		if (erg <= 5) return 5;			//5%
-		if (erg <= 20) return 4;			//15%
-		if (erg <= 35) return 3;			//15%
-		if (erg <= 50) return 2;			//15%
-		if (erg <= 75) return 1;			//25%
-		if (erg <= 100) return 0;       //25%
+		if (erg <= 5) return 5;             //5%
+		if (erg <= 20) return 4;            //15%
+		if (erg <= 35) return 3;            //15%
+		if (erg <= 50) return 2;            //15%
+		if (erg <= 75) return 1;            //25%
+		if (erg <= 100) return 0;           //25%
 		return 0;
 
 	}
@@ -178,11 +183,10 @@ public class CheckWin : MonoBehaviour
 		txtBet.text = PlayerInfo.Bet.ToString();
 		Debug.Log(txtBet.text);
 	}
-	
+
 	//Erechnet anhand des Einsatzs und des
 	private void CalcWin(int item)
 	{
-
 		switch (item)
 		{
 			case 0:
@@ -213,12 +217,11 @@ public class CheckWin : MonoBehaviour
 	{
 		txtMoney.text = PlayerInfo.Money.ToString();
 		txtBet.text = PlayerInfo.Bet.ToString();
-		
 	}
 
 	// Update is called once per frame
 	void Update()
-    {
-        
-    }
+	{
+
+	}
 }

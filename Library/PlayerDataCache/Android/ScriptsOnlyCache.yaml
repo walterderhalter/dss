@@ -41,24 +41,28 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12036}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 14262}
+      Script: {instanceID: 14260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -92,28 +96,32 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 12036}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12512}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13266}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 13996}
+      Script: {instanceID: 13994}
     - Class: 114
-      Script: {instanceID: 14262}
+      Script: {instanceID: 14260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -149,7 +157,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 9187c7c64b67aff7ee751048522fa392
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Leiter
@@ -335,7 +343,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 63f311a4ee3077754f5e2cddb7c32d9a
+      Hash: 467deaf0bfc408c23a1af35b2fa402b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CheckWin

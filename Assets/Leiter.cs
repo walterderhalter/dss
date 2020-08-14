@@ -10,13 +10,16 @@ public class Leiter : MonoBehaviour
 {
 
 
-
+	public AudioSource winSound;
+	public AudioSource loseSound;
+	public AudioSource leiterUp;
+	public AudioSource leiterDown;
 	private int position;				//Derzeitige Position der Leiter			
 	private int p1;						//Position für Leiter +1
 	private int p2;						//Position für Leiter -1
 	private bool start=true;			//Bool 
-	private bool schalter;			//Framerate Begrenzer
-	private int c;							//Counter für Update
+	private bool schalter;				//Framerate Begrenzer
+	private int c;						//Counter für Update
 	private List<int> price;			//Leiter Preisliste
 	private protected int[] multipliaktoren = new int[] { 0, 2, 5, 7, 10, 20, 40, 70, 100, 200 };
 
@@ -92,12 +95,14 @@ public class Leiter : MonoBehaviour
 		
 		if (rnd_int <= 3)
 		{
+			leiterUp.Play();
 			position=p1;
 			p1=position+1;
 			p2 = position - 1;
 		}
 		else if (rnd_int >= 4)
 		{
+			leiterDown.Play();
 			position=p2;
 			p1 = position + 1;
 			p2 = position - 1;
@@ -110,11 +115,11 @@ public class Leiter : MonoBehaviour
 	//Click Event für End :D
 	public void End_Click()
 	{
-		StartCoroutine(End());
+		StartCoroutine(End(1));
 	}
 
 	//Beendet die Leiter Szene
-	public IEnumerator End()
+	public IEnumerator End(int time)
 	{
 		enabled = false;
 		
@@ -123,7 +128,7 @@ public class Leiter : MonoBehaviour
 		Debug.Log(PlayerInfo.Money);
 		PlayerInfo.Save();
 		Debug.Log("Leiter beendet:  " + PlayerInfo.Winning);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(time);
 		SceneManager.LoadScene("SampleScene");
 	}
 
@@ -135,12 +140,14 @@ public class Leiter : MonoBehaviour
 	void Update()
 	{
 		if (p2 < 0)
-			StartCoroutine(End());
-			
+		{
+			loseSound.Play();
+			StartCoroutine(End(2));
+		}
 		if(p1 > 9)
 		{
-			//Musik Hier
-			StartCoroutine(End());
+			winSound.Play();
+			StartCoroutine(End(25));
 		}
 
 		else
