@@ -4,7 +4,7 @@ ScriptsOnlyBuild:
     - CheckWin
     - InfoCard
     - Leiter
-    - SpriteRandomize
+    - Roll
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -115,13 +115,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13266}
-    - Class: 114
       Script: {instanceID: 13792}
     - Class: 114
       Script: {instanceID: 13994}
     - Class: 114
       Script: {instanceID: 14260}
+    - Class: 114
+      Script: {instanceID: 17290}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -451,12 +451,6 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: c625bbc933093588b01ce2bae92904ae
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpriteRandomize
-  - hash:
-      serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -677,6 +671,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 00695c311693ef94e0cf3a2fedaf503d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Roll
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

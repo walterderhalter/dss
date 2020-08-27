@@ -11,6 +11,10 @@ public static class PlayerInfo
 	public static int Bet { get; set; } = 10;
 	public static int Winning { get; set; } = 0;
 
+	public static int[,] columns = new int[3, 3];
+
+	public static bool checkWin = false;
+
 
 	public static void Save()
 	{

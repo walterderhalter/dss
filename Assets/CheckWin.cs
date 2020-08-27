@@ -67,7 +67,7 @@ public class CheckWin : MonoBehaviour
 		PlayerInfo.Winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		btn_Bet.gameObject.SetActive(false);
-		Invoke("Roll", 2);
+		
 	}
 
 	//Wechselt auf die Leiter
@@ -77,23 +77,13 @@ public class CheckWin : MonoBehaviour
 		SceneManager.LoadScene("Leiter");
 	}
 
-	//Rollt die Ergebnisse 
-	public void Roll()
-	{
-		int[,] result = new int[3, 3];
-
-		for (int j = 0; j < 3; j++) for (int i = 0; i < 3; i++)
-			{
-				result[j, i] = GetSymbol();
-				GameObject.Find(j.ToString() + i.ToString()).GetComponent<Image>().sprite = sprites[result[j, i]];
-			}
-
-		Check(result);
-	}
+	
+	
 
 	//Checkt nach Gewinn
-	public void Check(int[,] result)
+	public void Check()
 	{
+		int[,] result = PlayerInfo.columns;
 		int jackpot_counter = 0;
 		#region Zu Viel IFs
 		#region Bitte lass es zu, des is echt peinlich 
@@ -144,6 +134,8 @@ public class CheckWin : MonoBehaviour
 		if (oneWin)
 		{
 			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.Winning);
+			
+
 			winSound.Play();
 			btn_Leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.Winning.ToString();
@@ -222,6 +214,10 @@ public class CheckWin : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (PlayerInfo.checkWin)
+		{
+			Check();
+			PlayerInfo.checkWin = false;
+		}
 	}
 }
