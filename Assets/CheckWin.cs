@@ -134,8 +134,6 @@ public class CheckWin : MonoBehaviour
 		if (oneWin)
 		{
 			Debug.Log("EIN GEWINN!!!!!!" + PlayerInfo.Winning);
-			
-
 			winSound.Play();
 			btn_Leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.Winning.ToString();
