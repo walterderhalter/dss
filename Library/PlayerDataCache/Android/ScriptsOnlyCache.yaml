@@ -54,15 +54,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12034}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12576}
+      Script: {instanceID: 12578}
     - Class: 114
-      Script: {instanceID: 13154}
+      Script: {instanceID: 13158}
     - Class: 114
-      Script: {instanceID: 13792}
+      Script: {instanceID: 13794}
     - Class: 114
-      Script: {instanceID: 14260}
+      Script: {instanceID: 14262}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -107,21 +107,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 12034}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12576}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 13154}
+      Script: {instanceID: 13158}
     - Class: 114
-      Script: {instanceID: 13792}
+      Script: {instanceID: 13794}
     - Class: 114
-      Script: {instanceID: 13994}
-    - Class: 114
-      Script: {instanceID: 14260}
-    - Class: 114
-      Script: {instanceID: 17290}
+      Script: {instanceID: 13996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -185,6 +181,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.Advertisements.dll
     namespaceName: UnityEngine.Advertisements.Platform.Editor
     className: BannerPlaceholder
+  - hash:
+      serializedVersion: 2
+      Hash: 00695c311693ef94e0cf3a2fedaf503d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Roll
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -371,6 +373,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 22621ec70332dce748d41630e20828ca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spin
   - hash:
       serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
@@ -671,12 +679,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 00695c311693ef94e0cf3a2fedaf503d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Roll
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

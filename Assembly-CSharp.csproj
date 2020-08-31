@@ -52,12 +52,12 @@
     <UnityVersion>2020.1.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Leiter.cs" />
-    <Compile Include="Assets\Roll.cs" />
+    <Compile Include="Assets\Leiter\Leiter.cs" />
+    <Compile Include="Assets\MainScreen\Roll.cs" />
     <Compile Include="Assets\PlayerInfo.cs" />
-    <Compile Include="Assets\CheckWin.cs" />
-    <Compile Include="Assets\InfoCard.cs" />
-    <Compile Include="Assets\Spin.cs" />
+    <Compile Include="Assets\MainScreen\CheckWin.cs" />
+    <Compile Include="Assets\Rad\Spin.cs" />
+    <Compile Include="Assets\MainScreen\InfoCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
