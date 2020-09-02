@@ -15,6 +15,8 @@ public static class PlayerInfo
 
 	public static bool checkWin = false;
 
+	public static bool jackpot = false;
+
 
 	public static void Save()
 	{

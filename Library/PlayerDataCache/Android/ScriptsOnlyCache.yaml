@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - InfoCard
     - Leiter
     - Roll
+    - Spin
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -26,7 +27,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Leiter.unity:
+    Assets/Leiter/Leiter.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -50,19 +51,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11772}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11800}
     - Class: 114
-      Script: {instanceID: 12044}
+      Script: {instanceID: 12038}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13800}
+      Script: {instanceID: 13796}
     - Class: 114
-      Script: {instanceID: 14268}
+      Script: {instanceID: 14264}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -81,7 +82,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
+    Assets/MainScreen/SampleScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -105,23 +106,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11748}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11772}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12044}
+      Script: {instanceID: 12038}
     - Class: 114
-      Script: {instanceID: 12522}
+      Script: {instanceID: 12516}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13800}
+      Script: {instanceID: 13796}
     - Class: 114
-      Script: {instanceID: 14002}
+      Script: {instanceID: 13998}
     - Class: 114
-      Script: {instanceID: 14268}
+      Script: {instanceID: 14264}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -141,6 +142,55 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 850595691
+      Script: {instanceID: 0}
+    Assets/Rad/Rad.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11748}
+    - Class: 114
+      Script: {instanceID: 11772}
+    - Class: 114
+      Script: {instanceID: 12038}
+    - Class: 114
+      Script: {instanceID: 12580}
+    - Class: 114
+      Script: {instanceID: 12594}
+    - Class: 114
+      Script: {instanceID: 13160}
+    - Class: 114
+      Script: {instanceID: 13796}
+    - Class: 114
+      Script: {instanceID: 14264}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -377,6 +427,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 22621ec70332dce748d41630e20828ca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spin
   - hash:
       serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
@@ -679,6 +735,7 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  - Assets/Scenes/Leiter.unity
+  - Assets/MainScreen/SampleScene.unity
+  - Assets/Leiter/Leiter.unity
+  - Assets/Rad/Rad.unity
   playerPath: C:/Users/admin/Documents/Slot3/DSS.apk
