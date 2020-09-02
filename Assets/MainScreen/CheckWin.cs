@@ -51,7 +51,6 @@ public class CheckWin : MonoBehaviour
 	public void StartClick()
 	{
 		PlayerInfo.Save();
-		
 		if (oneWin)
 		{
 			PlayerInfo.Money += PlayerInfo.Winning - PlayerInfo.Bet;
@@ -68,6 +67,8 @@ public class CheckWin : MonoBehaviour
 		PlayerInfo.Winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		btn_Bet.gameObject.SetActive(false);
+
+
 		
 	}
 
@@ -77,12 +78,6 @@ public class CheckWin : MonoBehaviour
 		btn_Leiter.gameObject.SetActive(false);
 		SceneManager.LoadScene("Leiter");
 	}
-
-	public void Jackpot()
-	{
-		PlayerInfo.jackpot = true;
-	}
-	
 
 	//Checkt nach Gewinn
 	public void Check()
@@ -141,6 +136,7 @@ public class CheckWin : MonoBehaviour
 			winSound.Play();
 			btn_Leiter.gameObject.SetActive(true);
 			txtWin.text = PlayerInfo.Winning.ToString();
+			
 		}
 		else
 		{
@@ -152,8 +148,6 @@ public class CheckWin : MonoBehaviour
 		btn_Bet.gameObject.SetActive(true);
 
 	}
-
-
 
 	//Wechselt den Einsatz
 	public void SwitchBet()
@@ -209,4 +203,12 @@ public class CheckWin : MonoBehaviour
 			PlayerInfo.checkWin = false;
 		}
 	}
+
+
+	public void Jackpot()
+	{
+		PlayerInfo.jackpot = true;
+	}
+
+
 }

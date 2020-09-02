@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/MainScreen/SampleScene.unity
+- path: Assets/Rad/Rad.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
