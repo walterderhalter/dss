@@ -21,11 +21,12 @@ public class Spin : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		
 		Debug.Log(Wheel.transform.eulerAngles.z);
 		enabled = false;
 		_rotationSpeed = Random.Range(200.0f, 380.0f);
 		winMoney = PlayerInfo.Winning;
-		//txt_Winning.text = winMoney.ToString();
+		txt_Winning.text = winMoney.ToString();
 	}
 
 	public void StartClick()
@@ -44,36 +45,38 @@ public class Spin : MonoBehaviour
 		}
 		else
 		{
-			GetLocation();
+			CheckForWin(GetLocation());
 			enabled = false;
 		}
-
-
 	}
-
-	private void GetLocation()
+	
+	// Errechnet die Postition 
+	private int GetLocation()
 	{
 		Debug.Log(Wheel.transform.eulerAngles.z / 72);
 		int slotNr = (int)(Wheel.transform.eulerAngles.z / 72);
+		return slotNr;
+	}
 
+	// Überprüft ob die Slot Nummer noch frei ist
+	private void CheckForWin(int slotNr)
+	{
 		if (Slots[slotNr])
 		{
-			
 			Slots[slotNr] = false;
 			PlayerInfo.Winning += winMoney;
 			txt_Winning.text = PlayerInfo.Winning.ToString();
 
-			if (Slots.Count(x => x == false) == 5) {
+			if (Slots.Count(x => x == false) == 5)
+			{
 				Debug.Log("Alle getroffen");
 				StartCoroutine(End(2));
-
 			}
 		}
 		else
 		{
 			Debug.Log("Loser");
 			StartCoroutine(End(2));
-
 		}
 	}
 
@@ -82,4 +85,5 @@ public class Spin : MonoBehaviour
 		yield return new WaitForSeconds(time);
 		SceneManager.LoadScene("SampleScene");
 	}
+
 }

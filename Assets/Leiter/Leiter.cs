@@ -89,12 +89,12 @@ public class Leiter : MonoBehaviour
 		{
 			GameObject.Find("box" + position).GetComponent<Image>().color = Color.white;
 		}
-		catch { }
+		catch {}
 	
 		
 		
 		if (rnd_int <= 3)
-		{
+		{ 
 			leiterUp.Play();
 			position=p1;
 			p1=position+1;
@@ -108,7 +108,7 @@ public class Leiter : MonoBehaviour
 			p2 = position - 1;
 		}
 
-			GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
+		GameObject.Find("box" + position).GetComponent<Image>().color = Color.green;
 		
 	}
 

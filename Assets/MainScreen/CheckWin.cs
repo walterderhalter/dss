@@ -25,7 +25,7 @@ public class CheckWin : MonoBehaviour
 
 
 
-
+	
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -44,16 +44,12 @@ public class CheckWin : MonoBehaviour
 
 	}
 
-
-
-
-
+	//Start Click Event :D
 	public void StartClick()
 	{
 		PlayerInfo.Save();
 		if (oneWin)
 		{
-
 			PlayerInfo.Money += PlayerInfo.Winning - PlayerInfo.Bet;
 			txtWin.text = PlayerInfo.Winning.ToString();
 			UpdateNumbers();
@@ -68,9 +64,6 @@ public class CheckWin : MonoBehaviour
 		PlayerInfo.Winning = 0;
 		btn_Start.gameObject.SetActive(false);
 		btn_Bet.gameObject.SetActive(false);
-
-
-		
 	}
 
 	//Wechselt auf die Leiter
@@ -85,6 +78,7 @@ public class CheckWin : MonoBehaviour
 	{
 		int[,] result = PlayerInfo.columns;
 		int jackpot_counter = 0;
+
 		#region Zu Viel IFs
 		#region Bitte lass es zu, des is echt peinlich 
 		PlayerInfo.Winning = 0;
@@ -182,7 +176,6 @@ public class CheckWin : MonoBehaviour
 			case 5:
 				PlayerInfo.Winning += PlayerInfo.Bet * 20;
 				break;
-
 			default:
 				break;
 		}
@@ -205,11 +198,9 @@ public class CheckWin : MonoBehaviour
 		}
 	}
 
-
+	//Test Methode um einen Jackpot auszulösen
 	public void Jackpot()
 	{
 		PlayerInfo.jackpot = true;
 	}
-
-
 }
