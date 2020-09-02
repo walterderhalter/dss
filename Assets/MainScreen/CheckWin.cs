@@ -53,6 +53,7 @@ public class CheckWin : MonoBehaviour
 		PlayerInfo.Save();
 		if (oneWin)
 		{
+
 			PlayerInfo.Money += PlayerInfo.Winning - PlayerInfo.Bet;
 			txtWin.text = PlayerInfo.Winning.ToString();
 			UpdateNumbers();
