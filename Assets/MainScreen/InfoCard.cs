@@ -27,7 +27,6 @@ public class InfoCard : MonoBehaviour
 
 		if (schalter)
 		{
-
 			if (transform.position.y > 7.15f)
 			{
 				transform.position.Set(transform.position.x, 7.2f, transform.position.z);
@@ -35,7 +34,6 @@ public class InfoCard : MonoBehaviour
 				enabled = false;
 
 			}
-
 			else
 				transform.position += transform.up * speed * Time.deltaTime;
 		}

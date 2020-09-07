@@ -31,8 +31,11 @@ public class Spin : MonoBehaviour
 
 	public void StartClick()
 	{
-		enabled = !enabled;
-		_rotationSpeed = Random.Range(200.0f, 380.0f);
+		if (enabled == false)
+		{
+			enabled = true;
+			_rotationSpeed = Random.Range(200.0f, 380.0f);
+		}
 	}
 
 	// Update is called once per frame
